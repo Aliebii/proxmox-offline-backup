@@ -1,0 +1,41 @@
+# Local configuration / secrets
+proxmox-offline-backup.conf
+*.local.conf
+
+# Backup copies
+*.bak
+*.backup
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# OS / editor metadata
+.DS_Store
+.vscode/
+.idea/
+
+# Local development context (not part of the public project)
+/.agents/
+/.codex/
+/Describtion
+/prompt
+/prompt phase*
+
+# Python test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local secrets and backup artifacts
+.env
+.env.*
+*.pem
+*.key
+*.vma
+*.vma.zst
+*.manifest.tsv

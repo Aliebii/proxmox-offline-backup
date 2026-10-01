@@ -1,0 +1,22 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  safety-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check Bash syntax
+        run: bash -n proxmox-offline-backup.sh config.example
+      - name: Run mocked safety and workflow tests
+        run: python3 -B -m unittest discover -s tests -v

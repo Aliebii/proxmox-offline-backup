@@ -1,0 +1,32 @@
+# Proxmox Offline Backup - Example Configuration
+# Copy this file to:
+# /etc/proxmox-offline-backup.conf
+# Then replace the example values with your environment.
+
+BACKUP_UUID="YOUR-BACKUP-FILESYSTEM-UUID"
+EXPECTED_FSTYPE="ext4"
+
+MOUNT_POINT="/mnt/backup"
+PVE_STORAGE="offline-backup"
+
+VM_IDS=(100)
+
+# Minimum available bytes before each VM backup (1 GiB by default).
+# This is a floor, not an estimate of the space the next backup requires.
+MIN_FREE_BYTES=1073741824
+
+# Optional rotation: replace BACKUP_UUID above with this associative array.
+# Connect exactly one configured disk per run. All disks share MOUNT_POINT
+# and PVE_STORAGE. Names must not contain tabs or line breaks.
+# declare -A BACKUP_DISKS=(
+#     ["Disk A"]="FILESYSTEM-UUID-A"
+#     ["Disk B"]="FILESYSTEM-UUID-B"
+#     ["Disk C"]="FILESYSTEM-UUID-C"
+# )
+
+# Optional per-disk mount types, keyed by names from BACKUP_DISKS.
+# Disks without an override use EXPECTED_FSTYPE above.
+# For the Linux kernel NTFS driver use ntfs3, not ntfs or ntfs-3g.
+# declare -A BACKUP_FSTYPES=(
+#     ["Disk B"]="ntfs3"
+# )

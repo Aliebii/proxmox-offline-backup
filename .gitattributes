@@ -1,0 +1,7 @@
+*.sh text eol=lf
+config.example text eol=lf
+*.md text eol=lf
+.gitignore text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+LICENSE text eol=lf
